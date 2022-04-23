@@ -1,6 +1,13 @@
 <template>
   <div class="the-table">
     <p>Below tbale</p>
+    <p>
+        <b-form-checkbox v-model="age_actived">
+            <span class="pl-1">
+                {{ age_actived ? "Disable" : "Enable" }} age
+            </span>
+        </b-form-checkbox>
+    </p>
     <b-table striped hover v-bind="{ items, fields }">
       <!--  -->
     </b-table>
@@ -37,6 +44,7 @@ export default {
                 last_name: "Carney",
             },
         ],
+        age_actived: false,
     }),
     computed: {
         /**
@@ -64,3 +72,9 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.pl-1 {
+    padding-left: 1rem;
+}
+</style>
