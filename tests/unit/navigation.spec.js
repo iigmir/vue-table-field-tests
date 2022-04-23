@@ -7,9 +7,9 @@ describe( "TheNavigation.vue", () => {
         const wrapper = shallowMount( TheNavigation, {
             stubs: ['router-link']
         });
-        const links = wrapper.vm.links;
+        const links = wrapper.vm.links.map( ({ to }) => to );
         const result = links.filter( (item, index, array) => {
-            return array.indexOf(item.to) !== array.lastIndexOf(item.to)
+            return array.indexOf(item) !== array.lastIndexOf(item)
         });
         strictEqual( result.length, 0 );
     })
