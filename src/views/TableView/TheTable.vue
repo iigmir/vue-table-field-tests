@@ -50,10 +50,11 @@ export default {
     }),
     computed: {
         keys() {
+            const actived_option = this.go_actived ? ["isActive"] : [];
             return [
                 "name",
                 "age",
-                ...(this.go_actived ? ["isActive"] : []),
+                ...actived_option,
             ];
         },
         /**
