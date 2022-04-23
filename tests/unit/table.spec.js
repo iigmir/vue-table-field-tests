@@ -6,12 +6,21 @@ import { BTable, BFormCheckbox } from "bootstrap-vue";
 const components = { BTable, BFormCheckbox };
 
 describe("TheTable.vue", () => {
-    it("has two fields", () => {
+    it("has two fields if age_actived is false", () => {
         const wrapper = shallowMount(TheTable, {
             components
         });
         const fields = wrapper.vm.fields;
+        wrapper.setData({ age_actived: false });
         strictEqual( fields.length, 2 );
+    });
+    it("has three fields if age_actived is true", () => {
+        const wrapper = shallowMount(TheTable, {
+            components
+        });
+        const fields = wrapper.vm.fields;
+        wrapper.setData({ age_actived: true });
+        strictEqual( fields.length, 3 );
     });
     it("gets its fullname by methods", () => {
         const wrapper = shallowMount(TheTable, {
