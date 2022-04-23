@@ -1,11 +1,12 @@
 <template>
     <nav>
         <router-link
-            v-for="({ to, name }) in links"
+            v-for="({ to, name }, index) in links"
             v-bind:key="to"
             v-bind="{ to }"
         >
-            {{ name }}
+            <span>{{ name }}</span>
+            <span v-if="index < links.length - 1">, </span>
         </router-link>
     </nav>
 </template>
