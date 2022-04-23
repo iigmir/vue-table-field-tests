@@ -1,6 +1,5 @@
 <template>
   <div class="the-table">
-    <p>Below tbale</p>
     <p>
         <b-form-checkbox v-model="age_actived">
             <span class="pl-1">
@@ -10,9 +9,9 @@
     </p>
     <b-table striped hover v-bind="{ items, fields }">
         <template #cell(name)="data">
-            {{ data.item.first_name }}, {{ data.item.last_name }}
+            {{ get_name(data.item) }}
         </template>
-        <template #table-caption>This is a table caption.</template>
+        <template #table-caption>Below table.</template>
     </b-table>
   </div>
 </template>
@@ -69,6 +68,11 @@ export default {
             ];
         },
     },
+    methods: {
+        get_name({ first_name, last_name }) {
+            return `${first_name}, ${last_name}`;
+        }
+    }
 };
 </script>
 
