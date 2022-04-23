@@ -8,9 +8,8 @@ describe( "TheNavigation.vue", () => {
             stubs: ['router-link']
         });
         const links = wrapper.vm.links;
-        console.log(links);
-        const result = [1,2,3,4].filter( (item, index, array) => {
-            return array.indexOf(item) !== array.lastIndexOf(item)
+        const result = links.filter( (item, index, array) => {
+            return array.indexOf(item.to) !== array.lastIndexOf(item.to)
         });
         strictEqual( result.length, 0 );
     })
