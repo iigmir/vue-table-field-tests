@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <b-container class="table">
         <h1>{{ title }}</h1>
-    </div>
+    </b-container>
 </template>
 
 <script>
