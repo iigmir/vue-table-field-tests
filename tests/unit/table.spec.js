@@ -14,12 +14,12 @@ describe("TheTable.vue", () => {
         wrapper.setData({ age_actived: false });
         strictEqual( fields.length, 2 );
     });
-    it("has three fields if age_actived is true", () => {
+    it("has three fields if age_actived is true", async () => {
         const wrapper = shallowMount(TheTable, {
-            components
+            components,
         });
         const fields = wrapper.vm.fields;
-        wrapper.setData({ age_actived: true });
+        await wrapper.setData({ age_actived: true });
         strictEqual( fields.length, 3 );
     });
     it("gets its fullname by methods", () => {
