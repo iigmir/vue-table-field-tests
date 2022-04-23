@@ -4,11 +4,11 @@ import TheTable from "@/views/TableView/TheTable.vue";
 import { BTable } from "bootstrap-vue";
 
 describe("TheTable.vue", () => {
-    it("has three fields", () => {
+    it("has two fields", () => {
         const wrapper = shallowMount(TheTable, {
             components: { BTable }
         });
         const fields = wrapper.vm.fields;
-        strictEqual( fields.length, 3 );
+        strictEqual( fields.length, 2 );
     });
 })

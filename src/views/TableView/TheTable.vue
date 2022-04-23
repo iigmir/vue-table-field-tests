@@ -9,7 +9,10 @@
         </b-form-checkbox>
     </p>
     <b-table striped hover v-bind="{ items, fields }">
-      <!--  -->
+        <template #cell(name)="data">
+            {{ data.item.first_name }}, {{ data.item.last_name }}
+        </template>
+        <template #table-caption>This is a table caption.</template>
     </b-table>
   </div>
 </template>
@@ -53,11 +56,7 @@ export default {
         fields() {
             return [
                 {
-                    key: "last_name",
-                    sortable: true
-                },
-                {
-                    key: "first_name",
+                    key: "name",
                     sortable: false
                 },
                 {
@@ -65,7 +64,7 @@ export default {
                     label: "Person age",
                     sortable: true,
                     // Variant applies to the whole column, including the header and footer
-                    variant: "danger"
+                    // variant: "danger"
                 }
             ];
         },
