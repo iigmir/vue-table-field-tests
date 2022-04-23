@@ -18,6 +18,7 @@ export default {
         links: [
             { to: "/", name: "Home" },
             { to: "/about", name: "About" },
+            { to: "/table", name: "Table" },
         ]
     })
 };
