@@ -1,9 +1,9 @@
 <template>
   <div class="the-table">
     <p>
-        <b-form-checkbox v-model="age_actived">
+        <b-form-checkbox v-model="go_actived">
             <span class="pl-1">
-                {{ age_actived ? "Disable" : "Enable" }} age
+                {{ go_actived ? "Disable" : "Enable" }} active value
             </span>
         </b-form-checkbox>
     </p>
@@ -46,26 +46,37 @@ export default {
                 last_name: "Carney",
             },
         ],
-        age_actived: false,
+        go_actived: false,
     }),
     computed: {
+        keys() {
+            return [
+                "name",
+                "age",
+                ...(this.go_actived ? ["isActive"] : []),
+            ];
+        },
         /**
          * Note `isActive` is left out and will not appear in the rendered table
          */
         fields() {
-            return [
-                {
-                    key: "name",
-                    sortable: false
-                },
-                {
-                    key: "age",
-                    label: "Person age",
-                    sortable: true,
-                    // Variant applies to the whole column, including the header and footer
-                    // variant: "danger"
-                }
+            const labels = {
+                "age": "Person age",
+                "isActive": "ACTIVED",
+            };
+            const no_sorts = [
+                "name",
             ];
+            const result = this.keys.map( key => {
+                const sortable = no_sorts.includes(key) === false;
+                const label = labels[key] ?? key;
+                return {
+                    key,
+                    label,
+                    sortable
+                };
+            });
+            return result;
         },
     },
     methods: {
