@@ -46,4 +46,13 @@ describe("The listid vuex module", () => {
             strictEqual( route.length > 0, true );
         });
     });
+    describe( "The current_route getter", () => {
+        it("should current route", async() => {
+            const wrapper = shallowMount( Stub, { store, localVue });
+            await wrapper.vm.SET_listid("About");
+            const { name, id } = wrapper.vm.current_route;
+            strictEqual( name, "About" );
+            strictEqual( id, 1 );
+        });
+    });
 });
