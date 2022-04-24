@@ -22,9 +22,9 @@ describe("The listid vuex module", () => {
         const list = wrapper.vm.list;
         strictEqual( Array.isArray(list), true );
     });
-    it("can create list", () => {
+    it("can create list", async() => {
         const wrapper = shallowMount( Stub, { store, localVue });
-        wrapper.vm.GET_list();
+        await wrapper.vm.GET_list();
         const has_item = wrapper.vm.list.length > 0;
         strictEqual( has_item, true );
     });

@@ -1,6 +1,6 @@
 import ListData from "./example.json";
 
-const AJAX = Promise.resolve( ListData );
+const AJAX = () => Promise.resolve( ListData );
 
 export default {
     namespaced: true,
@@ -16,7 +16,7 @@ export default {
     },
     actions: {
         GET_list({ commit }) {
-            AJAX.then(
+            AJAX().then(
                 (ajaxlist) => commit("SET_list", ajaxlist)
             );
         }
