@@ -39,12 +39,11 @@ describe("The listid vuex module", () => {
     });
     describe( "The set_listid action", () => {
         it("should set the list and id", async() => {
-            // const wrapper = shallowMount( Stub, { store, localVue });
-            // await wrapper.vm.set_listid("Home");
-            // const { list, route } = wrapper.vm;
-            // const has_item = list.length > 0;
-            // strictEqual( has_item, true );
-            // strictEqual( typeof(route), "string" );
+            const wrapper = shallowMount( Stub, { store, localVue });
+            await wrapper.vm.set_listid("Home");
+            const { list, route } = wrapper.vm;
+            strictEqual( list.length > 0, true );
+            strictEqual( route.length > 0, true );
         });
     });
 });
