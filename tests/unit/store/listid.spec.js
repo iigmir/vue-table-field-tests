@@ -54,5 +54,11 @@ describe("The listid vuex module", () => {
             strictEqual( name, "About" );
             strictEqual( id, 1 );
         });
+        it("should leave empty object if the route doesn't existed", async() => {
+            const wrapper = shallowMount( Stub, { store, localVue });
+            await wrapper.vm.SET_listid("NoSuchRoute");
+            const { current_route } = wrapper.vm;
+            strictEqual( typeof(current_route), "object" );
+        });
     });
 });
