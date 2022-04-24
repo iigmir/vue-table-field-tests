@@ -5,14 +5,15 @@ const AJAX = () => Promise.resolve( ListData );
 export default {
     namespaced: true,
     state: {
-        list: []
+        list: [],
+        route: "",
     },
     getters: {
     },
     mutations: {
         SET_list(state, list = []) {
             state.list = list;
-        }
+        },
     },
     actions: {
         GET_list({ commit }) {
@@ -24,7 +25,6 @@ export default {
                     reject(error);
                 });
             });
-
         }
     },
 };

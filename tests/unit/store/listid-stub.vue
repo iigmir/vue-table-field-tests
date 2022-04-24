@@ -2,9 +2,9 @@
 import { mapState, mapActions } from "vuex";
 export default {
     name: "Stub",
-    computed: mapState("listid",
-        ["list"]
-    ),
+    computed: {
+        ...mapState("listid", ["list", "route"]),
+    },
     methods: mapActions("listid",
         ["GET_list"]
     ),
