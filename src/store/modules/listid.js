@@ -10,9 +10,8 @@ export default {
     },
     getters: {
         current_route(state) {
-            const result = state.list.filter( item => {
-                return item.name === state.route
-            })[0];
+            const cb = item => item.name === state.route;
+            const result = state.list.filter(cb)[0];
             return result ?? {};
         }
     },
