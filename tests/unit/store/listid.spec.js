@@ -17,15 +17,24 @@ describe("The listid vuex module", () => {
             },
         });
     });
-    it("has the list state", () => {
-        const wrapper = shallowMount( Stub, { store, localVue });
-        const list = wrapper.vm.list;
-        strictEqual( Array.isArray(list), true );
+    describe( "The list state", () => {
+        it("should exist", () => {
+            const wrapper = shallowMount( Stub, { store, localVue });
+            const { list } = wrapper.vm;
+            strictEqual( Array.isArray(list), true );
+        });
+        it("can be created", async() => {
+            const wrapper = shallowMount( Stub, { store, localVue });
+            await wrapper.vm.GET_list();
+            const has_item = wrapper.vm.list.length > 0;
+            strictEqual( has_item, true );
+        });
     });
-    it("can create list", async() => {
-        const wrapper = shallowMount( Stub, { store, localVue });
-        await wrapper.vm.GET_list();
-        const has_item = wrapper.vm.list.length > 0;
-        strictEqual( has_item, true );
+    describe( "The route state", () => {
+        it("should exist", () => {
+            const wrapper = shallowMount( Stub, { store, localVue });
+            const { route } = wrapper.vm;
+            strictEqual( typeof(route), "string" );
+        });
     });
 });
