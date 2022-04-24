@@ -14,6 +14,9 @@ export default {
         set_list(state, list = []) {
             state.list = list;
         },
+        set_route(state, route = "") {
+            state.route = route.trim();
+        },
     },
     actions: {
         GET_list({ commit }) {
@@ -26,5 +29,15 @@ export default {
                 });
             });
         },
+        SET_listid({ dispatch, commit }, route) {
+            return new Promise( (resolve, reject) => {
+                dispatch("GET_list").then( () => {
+                    commit("set_route", route);
+                    resolve();
+                }).catch( (error) => {
+                    reject(error);
+                });
+            });
+        }
     },
 };

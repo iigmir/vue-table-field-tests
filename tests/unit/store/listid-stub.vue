@@ -5,7 +5,7 @@ export default {
     computed: {
         ...mapState("listid", ["list", "route"]),
     },
-    methods: mapActions("listid", ["GET_list"]),
+    methods: mapActions("listid", ["GET_list", "SET_listid"]),
     render: t => t("div"),
 }
 </script>

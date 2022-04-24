@@ -37,10 +37,10 @@ describe("The listid vuex module", () => {
             strictEqual( typeof(route), "string" );
         });
     });
-    describe( "The set_listid action", () => {
+    describe( "The SET_listid action", () => {
         it("should set the list and id", async() => {
             const wrapper = shallowMount( Stub, { store, localVue });
-            await wrapper.vm.set_listid("Home");
+            await wrapper.vm.SET_listid("Home");
             const { list, route } = wrapper.vm;
             strictEqual( list.length > 0, true );
             strictEqual( route.length > 0, true );
