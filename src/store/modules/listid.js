@@ -16,9 +16,15 @@ export default {
     },
     actions: {
         GET_list({ commit }) {
-            AJAX().then(
-                (ajaxlist) => commit("SET_list", ajaxlist)
-            );
+            return new Promise( (resolve, reject) => {
+                AJAX().then( (ajaxlist) => {
+                    commit("SET_list", ajaxlist);
+                    resolve(ajaxlist);
+                }).catch( (error) => {
+                    reject(error);
+                });
+            });
+
         }
     },
 };
