@@ -21,10 +21,11 @@ describe("The listid vuex module", () => {
         const wrapper = shallowMount( Stub, { store, localVue });
         const list = wrapper.vm.list;
         strictEqual( Array.isArray(list), true );
-    })
-})
-
-
-// listid
-// describe("");
-
+    });
+    it("can create list", () => {
+        const wrapper = shallowMount( Stub, { store, localVue });
+        wrapper.vm.GET_list();
+        const has_item = wrapper.vm.list.length > 0;
+        strictEqual( has_item, true );
+    });
+});
