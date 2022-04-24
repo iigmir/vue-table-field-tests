@@ -11,7 +11,7 @@ export default {
     getters: {
     },
     mutations: {
-        SET_list(state, list = []) {
+        set_list(state, list = []) {
             state.list = list;
         },
     },
@@ -19,12 +19,12 @@ export default {
         GET_list({ commit }) {
             return new Promise( (resolve, reject) => {
                 AJAX().then( (ajaxlist) => {
-                    commit("SET_list", ajaxlist);
+                    commit("set_list", ajaxlist);
                     resolve(ajaxlist);
                 }).catch( (error) => {
                     reject(error);
                 });
             });
-        }
+        },
     },
 };
