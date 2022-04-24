@@ -9,6 +9,12 @@ export default {
         route: "",
     },
     getters: {
+        current_route(state) {
+            const result = state.list.filter( item => {
+                return item.name === state.route
+            });
+            return result[0];
+        }
     },
     mutations: {
         set_list(state, list = []) {
